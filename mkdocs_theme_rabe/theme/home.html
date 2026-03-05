@@ -33,4 +33,28 @@
   </section>
 {% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+{% if page.meta and page.meta.cards %}
+<section class="tx-features">
+  <div class="md-grid">
+    <div class="tx-features__grid">
+      {% for card in page.meta.cards %}
+        {% if card.url %}
+        <a href="{{ card.url | url }}" class="tx-feature">
+        {% else %}
+        <div class="tx-feature">
+        {% endif %}
+          {% if card.icon %}<div class="tx-feature__icon">{{ card.icon }}</div>{% endif %}
+          <h2>{{ card.title }}</h2>
+          {% if card.description %}<p>{{ card.description }}</p>{% endif %}
+        {% if card.url %}
+        </a>
+        {% else %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

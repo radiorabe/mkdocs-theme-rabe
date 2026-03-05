@@ -56,6 +56,22 @@ class TestHomePage:
         btn = page.locator(".tx-hero .md-button--primary")
         expect(btn).to_be_visible()
 
+    def test_feature_cards_visible(self, page: Page, live_server: str):
+        _goto(page, live_server, "/")
+        cards = page.locator(".tx-features .tx-feature")
+        expect(cards.first).to_be_visible()
+
+    def test_feature_card_count(self, page: Page, live_server: str):
+        _goto(page, live_server, "/")
+        cards = page.locator(".tx-features .tx-feature")
+        expect(cards).to_have_count(4)
+
+    def test_linked_card_navigates(self, page: Page, live_server: str):
+        _goto(page, live_server, "/")
+        # The first card ("Single install") links to getting-started/installation/
+        first_link = page.locator("a.tx-feature").first
+        expect(first_link).to_be_visible()
+
     @pytest.mark.snapshot
     def test_home_desktop_screenshot(
         self, page: Page, live_server: str, snapshot

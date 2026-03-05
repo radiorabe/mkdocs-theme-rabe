@@ -60,6 +60,11 @@ class TestMkDocsBuild:
         content = (built_site / "index.html").read_text()
         assert "rabe.css" in content
 
+    def test_feature_cards_in_index(self, built_site: Path):
+        content = (built_site / "index.html").read_text()
+        assert "tx-features" in content
+        assert "tx-feature" in content
+
     def test_no_warnings_in_strict_mode(self, tmp_path):
         """Build must pass --strict, meaning zero warnings."""
         site = tmp_path / "site"

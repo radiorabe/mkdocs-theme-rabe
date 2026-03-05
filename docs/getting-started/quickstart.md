@@ -60,6 +60,36 @@ hero_cta_secondary:
 Short description shown below the hero.
 ```
 
+## Adding feature cards
+
+Display a grid of feature cards below the hero by adding a `cards` list to
+your front-matter.  Each card has a `title` and an optional `icon`,
+`description`, and `url`.  Cards without a `url` are purely visual.
+
+```markdown
+---
+template: home.html
+hero_cta_primary:
+  text: Get Started
+  url: getting-started/
+cards:
+  - title: Fast setup
+    icon: "📦"
+    description: Install once and get a fully configured MkDocs site.
+    url: getting-started/installation/
+  - title: On-brand automatically
+    icon: "🎨"
+    description: RaBe teal palette and dark/light toggle included.
+  - title: Backstage-ready
+    icon: "🔌"
+    description: TechDocs-compatible output for the Backstage developer portal.
+    url: configuration/backstage/
+---
+```
+
+Cards with a `url` are rendered as links and receive a hover highlight.
+Cards without a `url` are plain `<div>` elements.
+
 ## Adding llms.txt
 
 To generate a machine-readable `/llms.txt` file with your documentation
