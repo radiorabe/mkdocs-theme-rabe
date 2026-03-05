@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+
+  <section class="tx-hero">
+    <div class="md-grid md-typeset">
+      <div class="tx-hero__content">
+        <h1>{{ config.site_name }}</h1>
+        {% if config.site_description %}
+        <p>{{ config.site_description }}</p>
+        {% endif %}
+        {% if page.meta and page.meta.hero_cta_primary %}
+        <a
+          href="{{ page.meta.hero_cta_primary.url | url }}"
+          title="{{ page.meta.hero_cta_primary.text }}"
+          class="md-button md-button--primary"
+        >
+          {{ page.meta.hero_cta_primary.text }}
+        </a>
+        {% endif %}
+        {% if page.meta and page.meta.hero_cta_secondary %}
+        <a
+          href="{{ page.meta.hero_cta_secondary.url | url }}"
+          title="{{ page.meta.hero_cta_secondary.text }}"
+          class="md-button"
+        >
+          {{ page.meta.hero_cta_secondary.text }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+{% if page.meta and page.meta.cards %}
+<section class="tx-features">
+  <div class="md-grid">
+    <div class="tx-features__grid">
+      {% for card in page.meta.cards %}
+        {% if card.url %}
+        <a href="{{ card.url | url }}" class="tx-feature">
+        {% else %}
+        <div class="tx-feature">
+        {% endif %}
+          {% if card.icon %}<div class="tx-feature__icon">{{ card.icon }}</div>{% endif %}
+          <h2>{{ card.title }}</h2>
+          {% if card.description %}<p>{{ card.description }}</p>{% endif %}
+        {% if card.url %}
+        </a>
+        {% else %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

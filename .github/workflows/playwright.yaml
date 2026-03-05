@@ -1,0 +1,41 @@
+name: Playwright Snapshots
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - run: pipx install poetry
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: poetry
+
+      - run: poetry install
+
+      - run: poetry run playwright install chromium --with-deps
+
+      - name: Build docs
+        run: poetry run mkdocs build --strict
+
+      - name: Run Playwright tests
+        run: poetry run pytest tests/playwright/ -v
+
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-snapshots
+          path: tests/playwright/snapshots/
+          retention-days: 7

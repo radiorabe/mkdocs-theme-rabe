@@ -1,0 +1,15 @@
+extends: material
+locale: en
+palette:
+  - scheme: slate
+    primary: "#00c9bf"
+    accent: "#00c9bf"
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  - scheme: default
+    primary: "#00c9bf"
+    accent: "#00c9bf"
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode

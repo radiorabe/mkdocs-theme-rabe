@@ -1,0 +1,14 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+jobs:
+  test:
+    permissions:
+      contents: read
+    uses: radiorabe/actions/.github/workflows/test-python-poetry.yaml@v0.40.0
