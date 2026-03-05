@@ -47,7 +47,7 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-testpaths = ["tests/test_hooks.py"]
+testpaths = ["tests/test_hooks.py", "tests/test_build.py"]
 markers = [
     "snapshot: mark a test as a Playwright visual snapshot test",
 ]

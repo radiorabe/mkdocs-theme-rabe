@@ -79,16 +79,6 @@
   opacity: 0.9;
 }
 
-.tx-hero__image {
-  flex: 0 0 auto;
-  width: clamp(160px, 25vw, 260px);
-}
-
-.tx-hero__image svg {
-  width: 100%;
-  height: auto;
-}
-
 /* Hero buttons */
 .tx-hero .md-button {
   margin-right: 0.5rem;

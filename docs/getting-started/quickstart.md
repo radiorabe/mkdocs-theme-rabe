@@ -60,6 +60,25 @@ hero_cta_secondary:
 Short description shown below the hero.
 ```
 
+## Adding llms.txt
+
+To generate a machine-readable `/llms.txt` file with your documentation
+(useful for AI tools and LLM indexing), add the `llmstxt` plugin:
+
+```yaml title="mkdocs.yml"
+plugins:
+  - search
+  - llmstxt:
+      markdown_description: |
+        Brief description of your project for LLM context.
+      sections:
+        Docs:
+          - "**/*.md"
+```
+
+The `mkdocs-llmstxt` package is bundled as a dependency of `mkdocs-theme-rabe`
+so no separate install is required.
+
 ## Adding the hooks
 
 Optionally register the built-in hooks to get extra template variables:
