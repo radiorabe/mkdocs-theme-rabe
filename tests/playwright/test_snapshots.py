@@ -107,11 +107,11 @@ class TestGettingStartedPage:
 
 class TestColorScheme:
     def test_dark_mode_attribute(self, page: Page, live_server: str):
-        """The default palette is slate (dark); the html element should
-        carry ``data-md-color-scheme="slate"``."""
+        """The default palette is slate (dark); Material sets
+        ``data-md-color-scheme`` on the ``body`` element via JS."""
         _goto(page, live_server, "/")
         scheme = page.evaluate(
-            "document.querySelector('html').getAttribute('data-md-color-scheme')"
+            "document.body.getAttribute('data-md-color-scheme')"
         )
         assert scheme in ("slate", "default")
 

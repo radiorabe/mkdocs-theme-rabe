@@ -58,3 +58,7 @@ Installing `mkdocs-theme-rabe` also installs:
 ## License
 
 [AGPL-3.0-or-later](LICENSE)
+
+## Copyright
+
+Copyright (c) 2026 [Radio Bern RaBe](http://www.rabe.ch)
