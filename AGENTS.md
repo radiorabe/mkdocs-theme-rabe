@@ -57,4 +57,5 @@ poetry run mkdocs build --strict
 ## llms.txt
 
 - [radiorabe.github.io/mkdocs-theme-rabe/llms.txt](https://radiorabe.github.io/mkdocs-theme-rabe/llms.txt) – this repo (auto-generated at build time)
+- [radiorabe.github.io/actions/llms.txt](https://radiorabe.github.io/actions/llms.txt) – reusable GitHub Actions workflows for radiorabe CI/CD
 - [docs.github.com/llms.txt](https://docs.github.com/llms.txt) – GitHub Actions and GitHub Pages
