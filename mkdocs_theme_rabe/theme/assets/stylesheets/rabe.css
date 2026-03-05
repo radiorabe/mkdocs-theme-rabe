@@ -1,0 +1,157 @@
+/* RaBe brand identity overrides for MkDocs Material
+ *
+ * Primary brand color: #00c9bf (teal)
+ * The same value is applied for both the primary foreground and accent
+ * so that all interactive elements stay on-brand.
+ */
+
+/* -----------------------------------------------------------------------
+ * CSS custom properties (light scheme)
+ * --------------------------------------------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #00c9bf;
+  --md-primary-fg-color--light: #33d4cb;
+  --md-primary-fg-color--dark: #009e96;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #00c9bf;
+}
+
+/* -----------------------------------------------------------------------
+ * CSS custom properties (dark / slate scheme)
+ * --------------------------------------------------------------------- */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #00c9bf;
+  --md-primary-fg-color--light: #33d4cb;
+  --md-primary-fg-color--dark: #009e96;
+  --md-accent-fg-color: #00c9bf;
+  /* Keep header readable against dark background */
+  --md-primary-bg-color: #ffffff;
+}
+
+/* -----------------------------------------------------------------------
+ * Header
+ * --------------------------------------------------------------------- */
+.md-header {
+  background-color: var(--md-primary-fg-color);
+}
+
+/* -----------------------------------------------------------------------
+ * Navigation active / hover indicators
+ * --------------------------------------------------------------------- */
+.md-nav__link--active,
+.md-nav__link:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* -----------------------------------------------------------------------
+ * Hero section (used on the home page override template)
+ * --------------------------------------------------------------------- */
+.tx-hero {
+  padding: 2rem 0 3rem;
+  background: linear-gradient(
+    135deg,
+    var(--md-primary-fg-color) 0%,
+    var(--md-primary-fg-color--dark) 100%
+  );
+  color: #ffffff;
+}
+
+.tx-hero .md-grid {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.tx-hero__content {
+  flex: 1;
+}
+
+.tx-hero__content h1 {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tx-hero__content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.tx-hero__image {
+  flex: 0 0 auto;
+  width: clamp(160px, 25vw, 260px);
+}
+
+.tx-hero__image svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Hero buttons */
+.tx-hero .md-button {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tx-hero .md-button--primary {
+  background-color: #ffffff;
+  color: var(--md-primary-fg-color);
+  border-color: #ffffff;
+}
+
+.tx-hero .md-button--primary:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.tx-hero .md-button:not(.md-button--primary) {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.tx-hero .md-button:not(.md-button--primary):hover {
+  border-color: #ffffff;
+}
+
+/* -----------------------------------------------------------------------
+ * Feature cards (home page)
+ * --------------------------------------------------------------------- */
+.tx-features {
+  padding: 3rem 0;
+}
+
+.tx-features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.tx-feature {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.tx-feature:hover {
+  box-shadow: 0 4px 16px rgba(0, 201, 191, 0.15);
+  border-color: var(--md-primary-fg-color);
+}
+
+.tx-feature__icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.tx-feature h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.tx-feature p {
+  font-size: 0.875rem;
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+}

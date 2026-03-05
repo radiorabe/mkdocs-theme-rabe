@@ -1,0 +1,56 @@
+[project]
+name = "mkdocs-theme-rabe"
+version = "0.1.0"
+description = "MkDocs theme for Radio Bern RaBe"
+authors = [
+    {name = "Radio Bern RaBe", email = "it@rabe.ch"},
+]
+license = "AGPL-3.0-or-later"
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+classifiers = [
+    "Framework :: MkDocs",
+    "Topic :: Documentation",
+    "Intended Audience :: Developers",
+]
+dependencies = [
+    "mkdocs>=1.6,<2",
+    "mkdocs-material>=9.5,<10",
+    "mkdocstrings[python]>=0.25,<1",
+    "pymdown-extensions>=10,<11",
+    "mkdocs-section-index>=0.3,<1",
+    "mkdocs-gen-files>=0.5,<1",
+    "mkdocs-literate-nav>=0.6,<1",
+]
+
+[project.urls]
+Homepage = "https://radiorabe.github.io/mkdocs-theme-rabe/"
+Repository = "https://github.com/radiorabe/mkdocs-theme-rabe"
+Documentation = "https://radiorabe.github.io/mkdocs-theme-rabe/"
+
+[project.entry-points."mkdocs.themes"]
+rabe = "mkdocs_theme_rabe.theme"
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
+    "pytest-playwright>=0.5,<1",
+    "pytest-snapshot>=0.9,<1",
+    "mkdocs-llmstxt>=0.2,<1",
+]
+
+[tool.poetry]
+packages = [{include = "mkdocs_theme_rabe"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
