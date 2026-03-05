@@ -35,6 +35,9 @@ mkdocs.yml           # MkDocs config for this repo's own docs site
 - **License**: AGPL-3.0-or-later (matches all other `radiorabe` repos).
 - **Python style**: Google-style docstrings; markdown fenced code blocks inside
   docstrings (not RST `.. code-block::` directives).
+- **Versioning**: Semantic releasing via `go-semantic-release` driven by
+  [conventional commits](https://www.conventionalcommits.org) — no manual
+  version bumps in source code.
 
 ## Linting and Testing
 

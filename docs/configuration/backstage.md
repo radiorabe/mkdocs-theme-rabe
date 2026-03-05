@@ -24,12 +24,44 @@ so you do **not** need a separate TechDocs build step.
 
 ## CI/CD
 
-Use the reusable MkDocs workflow from `radiorabe/actions`:
+All RaBe repos use **semantic releasing** to create tags and GitHub releases
+automatically from [conventional commits](https://www.conventionalcommits.org).
+
+### Semantic release
+
+Add `.github/workflows/semantic-release.yaml` so that every push to `main`
+automatically creates a tag and GitHub release based on commit messages:
+
+```yaml title=".github/workflows/semantic-release.yaml"
+name: Semantic Release
+
+on:
+  push:
+    branches:
+      - main
+      - release/*
+
+permissions: {}
+
+jobs:
+  semantic-release:
+    permissions:
+      contents: read
+    uses: radiorabe/actions/.github/workflows/semantic-release.yaml@v0.40.0
+    secrets:
+      RABE_ITREAKTION_GITHUB_TOKEN: ${{ secrets.RABE_ITREAKTION_GITHUB_TOKEN }}
+```
+
+### Documentation release
+
+Use the reusable MkDocs workflow from `radiorabe/actions` for non-Python repos:
 
 ```yaml title=".github/workflows/release.yaml"
 name: Release
 
 on:
+  release:
+    types: [published]
   push:
     branches: [main]
   pull_request:
@@ -40,7 +72,7 @@ jobs:
   release-mkdocs:
     permissions:
       contents: write
-    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0
+    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.40.0
 ```
 
 For Python packages that also publish to PyPI, use the Poetry release workflow
@@ -64,7 +96,7 @@ jobs:
       contents: write
     secrets:
       RABE_PYPI_TOKEN: ${{ secrets.RABE_PYPI_TOKEN }}
-    uses: radiorabe/actions/.github/workflows/release-python-poetry.yaml@v0
+    uses: radiorabe/actions/.github/workflows/release-python-poetry.yaml@v0.40.0
 ```
 
 ## Shadow DOM compatibility
