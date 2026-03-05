@@ -8,7 +8,7 @@ so you do **not** need a separate TechDocs build step.
 ## What your repo needs to do
 
 1. Build and deploy your docs to GitHub Pages using the standard
-   [MkDocs release workflow](#ci-cd).
+   [MkDocs release workflow](#cicd).
 2. Ensure `techdocs_metadata.json` is present at the root of the published
    site.  The easiest way is to build via `techdocs-cli generate` instead
    of plain `mkdocs build`:

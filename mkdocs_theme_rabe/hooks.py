@@ -49,8 +49,8 @@ def on_page_context(
 def _get_version() -> str:
     """Return the installed package version."""
     try:
-        from importlib.metadata import version
+        from importlib.metadata import PackageNotFoundError, version
 
         return version("mkdocs-theme-rabe")
-    except Exception:  # pragma: no cover
+    except PackageNotFoundError:  # pragma: no cover
         return "dev"
