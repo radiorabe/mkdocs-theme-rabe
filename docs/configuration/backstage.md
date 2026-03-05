@@ -14,7 +14,7 @@ so you do **not** need a separate TechDocs build step.
    of plain `mkdocs build`:
 
    ```bash
-   pip install mkdocs-theme-rabe "@techdocs/cli"
+   pip install mkdocs-theme-rabe
    npx @techdocs/cli generate --no-docker
    ```
 
