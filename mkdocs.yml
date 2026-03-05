@@ -74,6 +74,18 @@ plugins:
         python:
           options:
             show_source: true
+  - llmstxt:
+      markdown_description: |
+        MkDocs theme for Radio Bern RaBe – bundles the RaBe brand identity
+        (#00c9bf teal), required dependencies, and custom rendering logic so
+        every project looks and feels consistent.
+      sections:
+        Getting Started:
+          - getting-started/*.md
+        Configuration:
+          - configuration/*.md
+        Reference:
+          - reference/*.md
 
 hooks:
   - mkdocs_theme_rabe/hooks.py

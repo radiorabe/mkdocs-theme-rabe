@@ -9,19 +9,6 @@ repo_url: https://github.com/radiorabe/my-project
 
 theme:
   name: rabe
-  palette:
-    - scheme: slate
-      primary: "#00c9bf"
-      accent: "#00c9bf"
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: "#00c9bf"
-      accent: "#00c9bf"
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
   font:
     text: Roboto
     code: Roboto Mono

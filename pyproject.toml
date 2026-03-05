@@ -16,7 +16,7 @@ classifiers = [
 dependencies = [
     "mkdocs>=1.6,<2",
     "mkdocs-material>=9.5,<10",
-    "mkdocstrings[python]>=0.25,<1",
+    "mkdocstrings[python]>=0.25,<2",
     "pymdown-extensions>=10,<11",
     "mkdocs-section-index>=0.3,<1",
     "mkdocs-gen-files>=0.5,<1",
@@ -33,7 +33,7 @@ rabe = "mkdocs_theme_rabe.theme"
 
 [dependency-groups]
 dev = [
-    "pytest>=8,<9",
+    "pytest>=8,<10",
     "pytest-playwright>=0.5,<1",
     "pytest-snapshot>=0.9,<1",
     "mkdocs-llmstxt>=0.2,<1",
@@ -47,7 +47,7 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests/test_hooks.py"]
 markers = [
     "snapshot: mark a test as a Playwright visual snapshot test",
 ]

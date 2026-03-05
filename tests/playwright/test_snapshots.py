@@ -62,6 +62,7 @@ class TestHomePage:
     ):
         page.set_viewport_size(VIEWPORT_DESKTOP)
         _goto(page, live_server, "/")
+        page.wait_for_timeout(500)
         screenshot = page.screenshot(full_page=True)
         snapshot.assert_match(screenshot, "home-desktop.png")
 
@@ -71,6 +72,7 @@ class TestHomePage:
     ):
         page.set_viewport_size(VIEWPORT_MOBILE)
         _goto(page, live_server, "/")
+        page.wait_for_timeout(500)
         screenshot = page.screenshot(full_page=True)
         snapshot.assert_match(screenshot, "home-mobile.png")
 
@@ -96,6 +98,7 @@ class TestGettingStartedPage:
     ):
         page.set_viewport_size(VIEWPORT_DESKTOP)
         _goto(page, live_server, "/getting-started/")
+        page.wait_for_timeout(500)
         screenshot = page.screenshot(full_page=True)
         snapshot.assert_match(screenshot, "getting-started.png")
 
@@ -121,11 +124,9 @@ class TestColorScheme:
     ):
         page.set_viewport_size(VIEWPORT_DESKTOP)
         _goto(page, live_server, "/")
-        # Switch to light mode via the toggle
-        toggle = page.locator("[data-md-toggle='__palette_1']")
-        if toggle.count():
-            toggle.click()
-            page.wait_for_timeout(400)
+        # Switch to light mode: click the palette toggle visible in dark mode
+        page.locator("label[title='Switch to light mode']").click()
+        page.wait_for_timeout(500)
         screenshot = page.screenshot(full_page=False)
         snapshot.assert_match(screenshot, "home-light-mode.png")
 

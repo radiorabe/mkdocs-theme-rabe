@@ -1,20 +1,18 @@
 """MkDocs hooks for the RaBe theme.
 
 These hooks are automatically called by MkDocs at various stages of the
-build process.  They are registered in ``mkdocs.yml`` via the ``hooks``
-key:
+build process. Register them in `mkdocs.yml`:
 
-.. code-block:: yaml
+```yaml
+hooks:
+  - mkdocs_theme_rabe/hooks.py
+```
 
-    hooks:
-      - mkdocs_theme_rabe/hooks.py
+When the package is installed, import the hook directly:
 
-Or, when the package is installed, via the convenience helper:
-
-.. code-block:: python
-
-    from mkdocs_theme_rabe.hooks import on_page_context
-
+```python
+from mkdocs_theme_rabe.hooks import on_page_context
+```
 """
 
 from __future__ import annotations
